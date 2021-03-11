@@ -1,0 +1,1548 @@
+{
+	"annotations": {
+	  "list": [
+		{
+		  "builtIn": 1,
+		  "datasource": "-- Grafana --",
+		  "enable": true,
+		  "hide": true,
+		  "iconColor": "rgba(0, 211, 255, 1)",
+		  "name": "Annotations & Alerts",
+		  "type": "dashboard"
+		}
+	  ]
+	},
+	"editable": true,
+	"gnetId": null,
+	"graphTooltip": 0,
+	"iteration": 1597189727375,
+	"links": [],
+	"panels": [
+	  {
+		"datasource": null,
+		"gridPos": {
+		  "h": 1,
+		  "w": 24,
+		  "x": 0,
+		  "y": 0
+		},
+		"id": 32,
+		"title": "Pods memory and CPU Graphs (default namespace)",
+		"type": "row"
+	  },
+	  {
+		"aliasColors": {},
+		"bars": false,
+		"dashLength": 10,
+		"dashes": false,
+		"datasource": null,
+		"description": "",
+		"fieldConfig": {
+		  "defaults": {
+			"custom": {
+			  "align": null
+			},
+			"displayName": "Memory usage",
+			"mappings": [],
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "decmbytes"
+		  },
+		  "overrides": []
+		},
+		"fill": 1,
+		"fillGradient": 10,
+		"gridPos": {
+		  "h": 6,
+		  "w": 12,
+		  "x": 0,
+		  "y": 1
+		},
+		"hiddenSeries": false,
+		"id": 29,
+		"legend": {
+		  "alignAsTable": true,
+		  "avg": true,
+		  "current": true,
+		  "hideEmpty": false,
+		  "hideZero": false,
+		  "max": true,
+		  "min": true,
+		  "rightSide": false,
+		  "show": true,
+		  "total": false,
+		  "values": true
+		},
+		"lines": true,
+		"linewidth": 1,
+		"nullPointMode": "null",
+		"percentage": false,
+		"pluginVersion": "7.1.3",
+		"pointradius": 2,
+		"points": false,
+		"renderer": "flot",
+		"seriesOverrides": [],
+		"spaceLength": 10,
+		"stack": false,
+		"steppedLine": false,
+		"targets": [
+		  {
+			"groupBy": [
+			  {
+				"params": [
+				  "10s"
+				],
+				"type": "time"
+			  },
+			  {
+				"params": [
+				  "null"
+				],
+				"type": "fill"
+			  }
+			],
+			"measurement": "kubernetes_pod_container",
+			"orderByTime": "ASC",
+			"policy": "default",
+			"refId": "A",
+			"resultFormat": "time_series",
+			"select": [
+			  [
+				{
+				  "params": [
+					"memory_usage_bytes"
+				  ],
+				  "type": "field"
+				},
+				{
+				  "params": [],
+				  "type": "sum"
+				},
+				{
+				  "params": [
+					" / 1024 / 1024"
+				  ],
+				  "type": "math"
+				}
+			  ]
+			],
+			"tags": [
+			  {
+				"key": "namespace",
+				"operator": "=",
+				"value": "default"
+			  }
+			]
+		  }
+		],
+		"thresholds": [
+		  {
+			"$$hashKey": "object:931",
+			"colorMode": "warning",
+			"fill": true,
+			"line": false,
+			"op": "gt",
+			"value": 2700,
+			"yaxis": "left"
+		  },
+		  {
+			"$$hashKey": "object:932",
+			"colorMode": "critical",
+			"fill": true,
+			"line": true,
+			"op": "gt",
+			"value": 2900,
+			"yaxis": "left"
+		  }
+		],
+		"timeFrom": null,
+		"timeRegions": [],
+		"timeShift": null,
+		"title": "Memory usage",
+		"tooltip": {
+		  "shared": true,
+		  "sort": 0,
+		  "value_type": "individual"
+		},
+		"transparent": true,
+		"type": "graph",
+		"xaxis": {
+		  "buckets": null,
+		  "mode": "time",
+		  "name": null,
+		  "show": true,
+		  "values": []
+		},
+		"yaxes": [
+		  {
+			"$$hashKey": "object:907",
+			"format": "decmbytes",
+			"label": "",
+			"logBase": 1,
+			"max": null,
+			"min": "0",
+			"show": true
+		  },
+		  {
+			"$$hashKey": "object:908",
+			"format": "short",
+			"label": null,
+			"logBase": 1,
+			"max": null,
+			"min": "0",
+			"show": false
+		  }
+		],
+		"yaxis": {
+		  "align": false,
+		  "alignLevel": null
+		}
+	  },
+	  {
+		"aliasColors": {},
+		"bars": false,
+		"dashLength": 10,
+		"dashes": false,
+		"datasource": null,
+		"decimals": null,
+		"description": "",
+		"fieldConfig": {
+		  "defaults": {
+			"custom": {},
+			"displayName": "Cores%",
+			"unit": "percent"
+		  },
+		  "overrides": []
+		},
+		"fill": 1,
+		"fillGradient": 0,
+		"gridPos": {
+		  "h": 6,
+		  "w": 12,
+		  "x": 12,
+		  "y": 1
+		},
+		"hiddenSeries": false,
+		"id": 30,
+		"legend": {
+		  "alignAsTable": true,
+		  "avg": true,
+		  "current": true,
+		  "hideEmpty": false,
+		  "hideZero": false,
+		  "max": true,
+		  "min": true,
+		  "rightSide": false,
+		  "show": true,
+		  "total": false,
+		  "values": true
+		},
+		"lines": true,
+		"linewidth": 1,
+		"nullPointMode": "null",
+		"percentage": false,
+		"pluginVersion": "7.1.3",
+		"pointradius": 2,
+		"points": false,
+		"renderer": "flot",
+		"seriesOverrides": [],
+		"spaceLength": 10,
+		"stack": false,
+		"steppedLine": false,
+		"targets": [
+		  {
+			"groupBy": [
+			  {
+				"params": [
+				  "10s"
+				],
+				"type": "time"
+			  },
+			  {
+				"params": [
+				  "null"
+				],
+				"type": "fill"
+			  }
+			],
+			"measurement": "kubernetes_pod_container",
+			"orderByTime": "ASC",
+			"policy": "default",
+			"refId": "A",
+			"resultFormat": "time_series",
+			"select": [
+			  [
+				{
+				  "params": [
+					"cpu_usage_nanocores"
+				  ],
+				  "type": "field"
+				},
+				{
+				  "params": [],
+				  "type": "sum"
+				},
+				{
+				  "params": [
+					" / 1000000000 / $total_cores"
+				  ],
+				  "type": "math"
+				}
+			  ]
+			],
+			"tags": [
+			  {
+				"key": "namespace",
+				"operator": "=",
+				"value": "default"
+			  }
+			]
+		  }
+		],
+		"thresholds": [],
+		"timeFrom": null,
+		"timeRegions": [],
+		"timeShift": null,
+		"title": "CPU Cores Usage%",
+		"tooltip": {
+		  "shared": true,
+		  "sort": 0,
+		  "value_type": "individual"
+		},
+		"transparent": true,
+		"type": "graph",
+		"xaxis": {
+		  "buckets": null,
+		  "mode": "time",
+		  "name": null,
+		  "show": true,
+		  "values": []
+		},
+		"yaxes": [
+		  {
+			"$$hashKey": "object:1013",
+			"format": "percent",
+			"label": null,
+			"logBase": 1,
+			"max": null,
+			"min": "0",
+			"show": true
+		  },
+		  {
+			"$$hashKey": "object:1014",
+			"format": "short",
+			"label": null,
+			"logBase": 1,
+			"max": null,
+			"min": "0",
+			"show": true
+		  }
+		],
+		"yaxis": {
+		  "align": false,
+		  "alignLevel": null
+		}
+	  },
+	  {
+		"collapsed": false,
+		"datasource": null,
+		"gridPos": {
+		  "h": 1,
+		  "w": 24,
+		  "x": 0,
+		  "y": 7
+		},
+		"id": 16,
+		"panels": [],
+		"title": "Pods Network (default namespace)",
+		"type": "row"
+	  },
+	  {
+		"datasource": null,
+		"description": "",
+		"fieldConfig": {
+		  "defaults": {
+			"custom": {},
+			"mappings": [],
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				}
+			  ]
+			},
+			"unit": "decbytes"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 2,
+		  "w": 5,
+		  "x": 0,
+		  "y": 8
+		},
+		"id": 14,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "none",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "max"
+			],
+			"fields": "",
+			"values": false
+		  },
+		  "textMode": "value"
+		},
+		"pluginVersion": "7.1.3",
+		"targets": [
+		  {
+			"groupBy": [
+			  {
+				"params": [
+				  "10s"
+				],
+				"type": "time"
+			  },
+			  {
+				"params": [
+				  "0"
+				],
+				"type": "fill"
+			  }
+			],
+			"measurement": "kubernetes_pod_network",
+			"orderByTime": "ASC",
+			"policy": "default",
+			"query": "SELECT max(\"rx_bytes\") FROM \"docker_container_net\" WHERE (\"io.kubernetes.container.name\" = 'nginx') AND $timeFilter GROUP BY time(10m) fill(0)",
+			"rawQuery": false,
+			"refId": "A",
+			"resultFormat": "time_series",
+			"select": [
+			  [
+				{
+				  "params": [
+					"rx_bytes"
+				  ],
+				  "type": "field"
+				},
+				{
+				  "params": [],
+				  "type": "sum"
+				}
+			  ]
+			],
+			"tags": [
+			  {
+				"key": "namespace",
+				"operator": "=",
+				"value": "default"
+			  }
+			]
+		  }
+		],
+		"timeFrom": null,
+		"timeShift": null,
+		"title": "Bytes received",
+		"transparent": true,
+		"type": "stat"
+	  },
+	  {
+		"datasource": null,
+		"description": "",
+		"fieldConfig": {
+		  "defaults": {
+			"custom": {},
+			"mappings": [],
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "dark-red",
+				  "value": 1
+				}
+			  ]
+			},
+			"unit": "none"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 2,
+		  "w": 5,
+		  "x": 5,
+		  "y": 8
+		},
+		"id": 22,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "none",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "max"
+			],
+			"fields": "",
+			"values": false
+		  },
+		  "textMode": "value"
+		},
+		"pluginVersion": "7.1.3",
+		"targets": [
+		  {
+			"groupBy": [
+			  {
+				"params": [
+				  "10s"
+				],
+				"type": "time"
+			  },
+			  {
+				"params": [
+				  "0"
+				],
+				"type": "fill"
+			  }
+			],
+			"measurement": "kubernetes_pod_network",
+			"orderByTime": "ASC",
+			"policy": "default",
+			"query": "SELECT max(\"rx_bytes\") FROM \"docker_container_net\" WHERE (\"io.kubernetes.container.name\" = 'nginx') AND $timeFilter GROUP BY time(10m) fill(0)",
+			"rawQuery": false,
+			"refId": "A",
+			"resultFormat": "time_series",
+			"select": [
+			  [
+				{
+				  "params": [
+					"rx_errors"
+				  ],
+				  "type": "field"
+				},
+				{
+				  "params": [],
+				  "type": "sum"
+				}
+			  ]
+			],
+			"tags": [
+			  {
+				"key": "namespace",
+				"operator": "=",
+				"value": "default"
+			  }
+			]
+		  }
+		],
+		"timeFrom": null,
+		"timeShift": null,
+		"title": "Receive errors",
+		"transparent": true,
+		"type": "stat"
+	  },
+	  {
+		"datasource": null,
+		"description": "",
+		"fieldConfig": {
+		  "defaults": {
+			"custom": {},
+			"mappings": [],
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				}
+			  ]
+			},
+			"unit": "decbytes"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 2,
+		  "w": 5,
+		  "x": 12,
+		  "y": 8
+		},
+		"id": 17,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "none",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "max"
+			],
+			"fields": "",
+			"values": false
+		  },
+		  "textMode": "value"
+		},
+		"pluginVersion": "7.1.3",
+		"targets": [
+		  {
+			"groupBy": [
+			  {
+				"params": [
+				  "10s"
+				],
+				"type": "time"
+			  },
+			  {
+				"params": [
+				  "0"
+				],
+				"type": "fill"
+			  }
+			],
+			"measurement": "kubernetes_pod_network",
+			"orderByTime": "ASC",
+			"policy": "default",
+			"query": "SELECT max(\"rx_bytes\") FROM \"docker_container_net\" WHERE (\"io.kubernetes.container.name\" = 'nginx') AND $timeFilter GROUP BY time(10m) fill(0)",
+			"rawQuery": false,
+			"refId": "A",
+			"resultFormat": "time_series",
+			"select": [
+			  [
+				{
+				  "params": [
+					"tx_bytes"
+				  ],
+				  "type": "field"
+				},
+				{
+				  "params": [],
+				  "type": "sum"
+				}
+			  ]
+			],
+			"tags": [
+			  {
+				"key": "namespace",
+				"operator": "=",
+				"value": "default"
+			  }
+			]
+		  }
+		],
+		"timeFrom": null,
+		"timeShift": null,
+		"title": "Bytes transfered",
+		"transparent": true,
+		"type": "stat"
+	  },
+	  {
+		"datasource": null,
+		"description": "",
+		"fieldConfig": {
+		  "defaults": {
+			"custom": {},
+			"mappings": [],
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "dark-red",
+				  "value": 1
+				}
+			  ]
+			},
+			"unit": "none"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 2,
+		  "w": 5,
+		  "x": 17,
+		  "y": 8
+		},
+		"id": 21,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "none",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "max"
+			],
+			"fields": "",
+			"values": false
+		  },
+		  "textMode": "value"
+		},
+		"pluginVersion": "7.1.3",
+		"targets": [
+		  {
+			"groupBy": [
+			  {
+				"params": [
+				  "10s"
+				],
+				"type": "time"
+			  },
+			  {
+				"params": [
+				  "0"
+				],
+				"type": "fill"
+			  }
+			],
+			"measurement": "kubernetes_pod_network",
+			"orderByTime": "ASC",
+			"policy": "default",
+			"query": "SELECT max(\"rx_bytes\") FROM \"docker_container_net\" WHERE (\"io.kubernetes.container.name\" = 'nginx') AND $timeFilter GROUP BY time(10m) fill(0)",
+			"rawQuery": false,
+			"refId": "A",
+			"resultFormat": "time_series",
+			"select": [
+			  [
+				{
+				  "params": [
+					"tx_errors"
+				  ],
+				  "type": "field"
+				},
+				{
+				  "params": [],
+				  "type": "sum"
+				}
+			  ]
+			],
+			"tags": [
+			  {
+				"key": "namespace",
+				"operator": "=",
+				"value": "default"
+			  }
+			]
+		  }
+		],
+		"timeFrom": null,
+		"timeShift": null,
+		"title": "Transfer errors",
+		"transparent": true,
+		"type": "stat"
+	  },
+	  {
+		"collapsed": false,
+		"datasource": null,
+		"gridPos": {
+		  "h": 1,
+		  "w": 24,
+		  "x": 0,
+		  "y": 10
+		},
+		"id": 6,
+		"panels": [],
+		"title": "Node memory and CPU Graphs",
+		"type": "row"
+	  },
+	  {
+		"aliasColors": {},
+		"bars": false,
+		"dashLength": 10,
+		"dashes": false,
+		"datasource": null,
+		"description": "",
+		"fieldConfig": {
+		  "defaults": {
+			"custom": {
+			  "align": null
+			},
+			"displayName": "Memory usage",
+			"mappings": [],
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "decmbytes"
+		  },
+		  "overrides": []
+		},
+		"fill": 1,
+		"fillGradient": 10,
+		"gridPos": {
+		  "h": 6,
+		  "w": 12,
+		  "x": 0,
+		  "y": 11
+		},
+		"hiddenSeries": false,
+		"id": 4,
+		"legend": {
+		  "alignAsTable": true,
+		  "avg": true,
+		  "current": true,
+		  "hideEmpty": false,
+		  "hideZero": false,
+		  "max": true,
+		  "min": true,
+		  "rightSide": false,
+		  "show": true,
+		  "total": false,
+		  "values": true
+		},
+		"lines": true,
+		"linewidth": 1,
+		"nullPointMode": "null",
+		"percentage": false,
+		"pluginVersion": "7.1.3",
+		"pointradius": 2,
+		"points": false,
+		"renderer": "flot",
+		"seriesOverrides": [],
+		"spaceLength": 10,
+		"stack": false,
+		"steppedLine": false,
+		"targets": [
+		  {
+			"groupBy": [
+			  {
+				"params": [
+				  "10s"
+				],
+				"type": "time"
+			  },
+			  {
+				"params": [
+				  "null"
+				],
+				"type": "fill"
+			  }
+			],
+			"measurement": "kubernetes_node",
+			"orderByTime": "ASC",
+			"policy": "default",
+			"refId": "A",
+			"resultFormat": "time_series",
+			"select": [
+			  [
+				{
+				  "params": [
+					"memory_usage_bytes"
+				  ],
+				  "type": "field"
+				},
+				{
+				  "params": [],
+				  "type": "mean"
+				},
+				{
+				  "params": [
+					" / 1024 / 1024"
+				  ],
+				  "type": "math"
+				}
+			  ]
+			],
+			"tags": []
+		  }
+		],
+		"thresholds": [
+		  {
+			"$$hashKey": "object:104",
+			"colorMode": "warning",
+			"fill": true,
+			"line": false,
+			"op": "gt",
+			"value": 2700,
+			"yaxis": "left"
+		  },
+		  {
+			"$$hashKey": "object:105",
+			"colorMode": "critical",
+			"fill": true,
+			"line": true,
+			"op": "gt",
+			"value": 2900,
+			"yaxis": "left"
+		  }
+		],
+		"timeFrom": null,
+		"timeRegions": [],
+		"timeShift": null,
+		"title": "Memory usage",
+		"tooltip": {
+		  "shared": true,
+		  "sort": 0,
+		  "value_type": "individual"
+		},
+		"transparent": true,
+		"type": "graph",
+		"xaxis": {
+		  "buckets": null,
+		  "mode": "time",
+		  "name": null,
+		  "show": true,
+		  "values": []
+		},
+		"yaxes": [
+		  {
+			"$$hashKey": "object:80",
+			"format": "decmbytes",
+			"label": "",
+			"logBase": 1,
+			"max": null,
+			"min": "0",
+			"show": true
+		  },
+		  {
+			"$$hashKey": "object:81",
+			"format": "short",
+			"label": null,
+			"logBase": 1,
+			"max": null,
+			"min": "0",
+			"show": false
+		  }
+		],
+		"yaxis": {
+		  "align": false,
+		  "alignLevel": null
+		}
+	  },
+	  {
+		"aliasColors": {},
+		"bars": false,
+		"dashLength": 10,
+		"dashes": false,
+		"datasource": null,
+		"decimals": null,
+		"description": "",
+		"fieldConfig": {
+		  "defaults": {
+			"custom": {},
+			"displayName": "Cores%",
+			"unit": "percent"
+		  },
+		  "overrides": []
+		},
+		"fill": 1,
+		"fillGradient": 0,
+		"gridPos": {
+		  "h": 6,
+		  "w": 12,
+		  "x": 12,
+		  "y": 11
+		},
+		"hiddenSeries": false,
+		"id": 2,
+		"legend": {
+		  "alignAsTable": true,
+		  "avg": true,
+		  "current": true,
+		  "hideEmpty": false,
+		  "hideZero": false,
+		  "max": true,
+		  "min": true,
+		  "rightSide": false,
+		  "show": true,
+		  "total": false,
+		  "values": true
+		},
+		"lines": true,
+		"linewidth": 1,
+		"nullPointMode": "null",
+		"percentage": false,
+		"pluginVersion": "7.1.3",
+		"pointradius": 2,
+		"points": false,
+		"renderer": "flot",
+		"seriesOverrides": [],
+		"spaceLength": 10,
+		"stack": false,
+		"steppedLine": false,
+		"targets": [
+		  {
+			"groupBy": [
+			  {
+				"params": [
+				  "10s"
+				],
+				"type": "time"
+			  },
+			  {
+				"params": [
+				  "null"
+				],
+				"type": "fill"
+			  }
+			],
+			"measurement": "kubernetes_node",
+			"orderByTime": "ASC",
+			"policy": "default",
+			"refId": "A",
+			"resultFormat": "time_series",
+			"select": [
+			  [
+				{
+				  "params": [
+					"cpu_usage_nanocores"
+				  ],
+				  "type": "field"
+				},
+				{
+				  "params": [],
+				  "type": "mean"
+				},
+				{
+				  "params": [
+					" / 1000000000 / $total_cores"
+				  ],
+				  "type": "math"
+				}
+			  ]
+			],
+			"tags": []
+		  }
+		],
+		"thresholds": [],
+		"timeFrom": null,
+		"timeRegions": [],
+		"timeShift": null,
+		"title": "CPU Cores Usage%",
+		"tooltip": {
+		  "shared": true,
+		  "sort": 0,
+		  "value_type": "individual"
+		},
+		"transparent": true,
+		"type": "graph",
+		"xaxis": {
+		  "buckets": null,
+		  "mode": "time",
+		  "name": null,
+		  "show": true,
+		  "values": []
+		},
+		"yaxes": [
+		  {
+			"format": "percent",
+			"label": null,
+			"logBase": 1,
+			"max": null,
+			"min": "0",
+			"show": true
+		  },
+		  {
+			"format": "short",
+			"label": null,
+			"logBase": 1,
+			"max": null,
+			"min": "0",
+			"show": true
+		  }
+		],
+		"yaxis": {
+		  "align": false,
+		  "alignLevel": null
+		}
+	  },
+	  {
+		"collapsed": false,
+		"datasource": null,
+		"gridPos": {
+		  "h": 1,
+		  "w": 24,
+		  "x": 0,
+		  "y": 17
+		},
+		"id": 28,
+		"panels": [],
+		"title": "Node Network",
+		"type": "row"
+	  },
+	  {
+		"datasource": null,
+		"description": "",
+		"fieldConfig": {
+		  "defaults": {
+			"custom": {},
+			"mappings": [],
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				}
+			  ]
+			},
+			"unit": "decbytes"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 2,
+		  "w": 5,
+		  "x": 0,
+		  "y": 18
+		},
+		"id": 23,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "none",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "max"
+			],
+			"fields": "",
+			"values": false
+		  },
+		  "textMode": "value"
+		},
+		"pluginVersion": "7.1.3",
+		"targets": [
+		  {
+			"groupBy": [
+			  {
+				"params": [
+				  "10s"
+				],
+				"type": "time"
+			  },
+			  {
+				"params": [
+				  "0"
+				],
+				"type": "fill"
+			  }
+			],
+			"measurement": "kubernetes_node",
+			"orderByTime": "ASC",
+			"policy": "default",
+			"query": "SELECT max(\"rx_bytes\") FROM \"docker_container_net\" WHERE (\"io.kubernetes.container.name\" = 'nginx') AND $timeFilter GROUP BY time(10m) fill(0)",
+			"rawQuery": false,
+			"refId": "A",
+			"resultFormat": "time_series",
+			"select": [
+			  [
+				{
+				  "params": [
+					"network_rx_bytes"
+				  ],
+				  "type": "field"
+				},
+				{
+				  "params": [],
+				  "type": "mean"
+				}
+			  ]
+			],
+			"tags": [
+			  {
+				"key": "node_name",
+				"operator": "=",
+				"value": "minikube"
+			  }
+			]
+		  }
+		],
+		"timeFrom": null,
+		"timeShift": null,
+		"title": "Bytes received",
+		"transparent": true,
+		"type": "stat"
+	  },
+	  {
+		"datasource": null,
+		"description": "",
+		"fieldConfig": {
+		  "defaults": {
+			"custom": {},
+			"mappings": [],
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "dark-red",
+				  "value": 1
+				}
+			  ]
+			},
+			"unit": "none"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 2,
+		  "w": 5,
+		  "x": 5,
+		  "y": 18
+		},
+		"id": 25,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "none",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "max"
+			],
+			"fields": "",
+			"values": false
+		  },
+		  "textMode": "value"
+		},
+		"pluginVersion": "7.1.3",
+		"targets": [
+		  {
+			"groupBy": [
+			  {
+				"params": [
+				  "10s"
+				],
+				"type": "time"
+			  },
+			  {
+				"params": [
+				  "0"
+				],
+				"type": "fill"
+			  }
+			],
+			"measurement": "kubernetes_node",
+			"orderByTime": "ASC",
+			"policy": "default",
+			"query": "SELECT max(\"rx_bytes\") FROM \"docker_container_net\" WHERE (\"io.kubernetes.container.name\" = 'nginx') AND $timeFilter GROUP BY time(10m) fill(0)",
+			"rawQuery": false,
+			"refId": "A",
+			"resultFormat": "time_series",
+			"select": [
+			  [
+				{
+				  "params": [
+					"network_rx_errors"
+				  ],
+				  "type": "field"
+				},
+				{
+				  "params": [],
+				  "type": "sum"
+				}
+			  ]
+			],
+			"tags": []
+		  }
+		],
+		"timeFrom": null,
+		"timeShift": null,
+		"title": "Receive errors",
+		"transparent": true,
+		"type": "stat"
+	  },
+	  {
+		"datasource": null,
+		"description": "",
+		"fieldConfig": {
+		  "defaults": {
+			"custom": {},
+			"mappings": [],
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				}
+			  ]
+			},
+			"unit": "decbytes"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 2,
+		  "w": 5,
+		  "x": 12,
+		  "y": 18
+		},
+		"id": 24,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "none",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "max"
+			],
+			"fields": "",
+			"values": false
+		  },
+		  "textMode": "value"
+		},
+		"pluginVersion": "7.1.3",
+		"targets": [
+		  {
+			"groupBy": [
+			  {
+				"params": [
+				  "10s"
+				],
+				"type": "time"
+			  },
+			  {
+				"params": [
+				  "0"
+				],
+				"type": "fill"
+			  }
+			],
+			"measurement": "kubernetes_node",
+			"orderByTime": "ASC",
+			"policy": "default",
+			"query": "SELECT sum(\"network_tx_bytes\") FROM \"kubernetes_node\" WHERE $timeFilter GROUP BY time(10s) fill(0)",
+			"rawQuery": false,
+			"refId": "A",
+			"resultFormat": "time_series",
+			"select": [
+			  [
+				{
+				  "params": [
+					"network_tx_bytes"
+				  ],
+				  "type": "field"
+				},
+				{
+				  "params": [],
+				  "type": "mean"
+				}
+			  ]
+			],
+			"tags": [
+			  {
+				"key": "node_name",
+				"operator": "=",
+				"value": "minikube"
+			  }
+			]
+		  }
+		],
+		"timeFrom": null,
+		"timeShift": null,
+		"title": "Bytes transfered",
+		"transparent": true,
+		"type": "stat"
+	  },
+	  {
+		"datasource": null,
+		"description": "",
+		"fieldConfig": {
+		  "defaults": {
+			"custom": {},
+			"mappings": [],
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "dark-red",
+				  "value": 1
+				}
+			  ]
+			},
+			"unit": "none"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 2,
+		  "w": 5,
+		  "x": 17,
+		  "y": 18
+		},
+		"id": 26,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "none",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "max"
+			],
+			"fields": "",
+			"values": false
+		  },
+		  "textMode": "value"
+		},
+		"pluginVersion": "7.1.3",
+		"targets": [
+		  {
+			"groupBy": [
+			  {
+				"params": [
+				  "10s"
+				],
+				"type": "time"
+			  },
+			  {
+				"params": [
+				  "0"
+				],
+				"type": "fill"
+			  }
+			],
+			"measurement": "kubernetes_node",
+			"orderByTime": "ASC",
+			"policy": "default",
+			"query": "SELECT max(\"rx_bytes\") FROM \"docker_container_net\" WHERE (\"io.kubernetes.container.name\" = 'nginx') AND $timeFilter GROUP BY time(10m) fill(0)",
+			"rawQuery": false,
+			"refId": "A",
+			"resultFormat": "time_series",
+			"select": [
+			  [
+				{
+				  "params": [
+					"network_tx_errors"
+				  ],
+				  "type": "field"
+				},
+				{
+				  "params": [],
+				  "type": "sum"
+				}
+			  ]
+			],
+			"tags": []
+		  }
+		],
+		"timeFrom": null,
+		"timeShift": null,
+		"title": "Transfer errors",
+		"transparent": true,
+		"type": "stat"
+	  }
+	],
+	"refresh": "10s",
+	"schemaVersion": 26,
+	"style": "dark",
+	"tags": [],
+	"templating": {
+	  "list": [
+		{
+		  "allValue": null,
+		  "current": {
+			"selected": false,
+			"text": "3140415488",
+			"value": "3140415488"
+		  },
+		  "datasource": "InfluxDB",
+		  "definition": "SELECT last(\"total\") FROM \"mem\"",
+		  "hide": 2,
+		  "includeAll": false,
+		  "label": "",
+		  "multi": false,
+		  "name": "total_mem",
+		  "options": [],
+		  "query": "SELECT last(\"total\") FROM \"mem\"",
+		  "refresh": 1,
+		  "regex": "",
+		  "skipUrlSync": false,
+		  "sort": 0,
+		  "tagValuesQuery": "",
+		  "tags": [],
+		  "tagsQuery": "",
+		  "type": "query",
+		  "useTags": false
+		},
+		{
+		  "allValue": null,
+		  "current": {
+			"selected": false,
+			"text": "2",
+			"value": "2"
+		  },
+		  "datasource": "InfluxDB",
+		  "definition": "SELECT last(\"n_cpus\") FROM \"docker\"",
+		  "hide": 2,
+		  "includeAll": false,
+		  "label": "",
+		  "multi": false,
+		  "name": "total_cores",
+		  "options": [],
+		  "query": "SELECT last(\"n_cpus\") FROM \"docker\"",
+		  "refresh": 1,
+		  "regex": "",
+		  "skipUrlSync": false,
+		  "sort": 0,
+		  "tagValuesQuery": "",
+		  "tags": [],
+		  "tagsQuery": "",
+		  "type": "query",
+		  "useTags": false
+		}
+	  ]
+	},
+	"time": {
+	  "from": "now-30m",
+	  "to": "now"
+	},
+	"timepicker": {
+	  "hidden": false,
+	  "refresh_intervals": [
+		"10s",
+		"30s",
+		"1m",
+		"5m",
+		"15m",
+		"30m",
+		"1h",
+		"2h",
+		"1d"
+	  ]
+	},
+	"timezone": "",
+	"title": "Kubernetes Pods and Node",
+	"uid": "jxI2rJSMz",
+	"version": 1
+  }
