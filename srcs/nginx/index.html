@@ -12,17 +12,25 @@
 </head>
 <body>
 <h1>Welcome to nginx server!</h1>
-<p>There's nothing here except for IPs to other services in this cluster.</p>
+<p>There's nothing here except for links to other services in this cluster</p>
 <p>If any password asked: try `admin42`</p>
-<p>Nginx: <a href="http://192.168.117.242:80/">192.168.117.242:80/443</a><br/>
-SSH: `ssh user@192.168.117.242` (port 22)<br/>
-Users: root, admin.</p>
-<p>Wordpress: <a href="http://192.168.117.242:5050/">192.168.117.242:5050</a><br/>
-Users: admin, bocal, evaluator.</p>
-<p>PhpMyAdmin: <a href="http://192.168.117.242:5000/">192.168.117.242:5000</a><br/>
-User: mysql.</p>
-<p>FTPS: 192.168.117.242:21<br/>User: vsftp.</p>
-<p>Grafana: <a href="http://192.168.117.242:3000/">192.168.117.242:3000</a><br/>
-User: admin.</p>
+
+<p>Nginx: <a href="http://192.168.117.242:80/">192.168.117.242:80/443</a>
+<br/>SSH: `ssh [username]@192.168.117.242` (port 22)
+<br/>Users: root, admin</p>
+
+<p>Wordpress: <a href="http://192.168.117.242:5050/">192.168.117.242:5050</a>
+	or <a href="/wordpress">/wordpress</a> redirect 307
+<br/>Users: admin, bocal, evaluator</p>
+
+<p>PhpMyAdmin: <a href="http://192.168.117.242:5000/">192.168.117.242:5000</a>
+	or <a href="/phpmyadmin">/phpmyadmin</a> reverse proxy
+<br/>User: mysql</p>
+
+<p>FTPS: 192.168.117.242:21<br/>User: vsftp</p>
+
+<p>Grafana: <a href="http://192.168.117.242:3000/">192.168.117.242:3000</a>
+<br/>User: admin</p>
+
 </body>
 </html>
