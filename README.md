@@ -12,21 +12,21 @@
 
 All containers are building from scratch using Alpine Linux
 
-### Running cluster
-1. Install kubectl and minikube (also make sure virtualbox is installed)
+## Running cluster
+1. Install `kubectl` and `minikube` (also make sure virtualbox is installed)
 2. Run `./setup.sh`
 
 ### Checking cluster
-Open `192.168.117.242` in any browser
-and follow instructions on page to check other services
+Open `192.168.117.242` in any browser and follow the instructions on the opened page to check other services
 
-### Migrating to another minikube vm driver
-1. Check `minikube ip` after running `minikube start` with desired driver.
-The ip address you get should be in the same `/24` CIDR subnet as your services.
+## Migrating to another minikube vm driver
+1. Check `minikube ip` after running `minikube start --driver=[desired driver]`\
+The ip address you get should be in the same `/24` CIDR subnet as your services\
 So basically if `minikube ip` returned `a.b.c.d` you replace `192.168.117.242` with `a.b.c.242` everywhere
-2. In `setup.sh` change driver and remove `--host-only-cidr` parameter (this parameter supported only by virtualbox driver)
+2. In `setup.sh` change driver and remove `--host-only-cidr` parameter
+>`--host-only-cidr` is only for virtualbox driver
 
-> If migration didn't work:
-> 1. check if something blocks this ip
-> 2. check if the driver is limited by the OS (probably on macOS with docker driver)
-> 3. check some kind of documentation for minikube driver you chose or google the issue (somebody's probably had this kind of issue)
+### If migration didn't work
+1. check if something is blocking the ip or any port
+2. check if the driver is limited by the OS (probably on macOS with docker driver so you better choose hyperkit or stay on virtualbox)
+3. check some kind of documentation for minikube driver you chose or google the issue (somebody's probably had this kind of issue)
