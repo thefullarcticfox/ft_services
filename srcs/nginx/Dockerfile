@@ -16,12 +16,12 @@ COPY	./supervisord.conf	/etc/supervisord.conf
 # RUN	sed -i 's/user nginx;/user www-data;/g' /etc/nginx/nginx.conf
 RUN		chown -R nginx:nginx /var/www/localhost/htdocs
 
-# ssl rootCA cert/key key generation
+# ssl rootCA cert/key generation
 RUN		openssl genrsa -out /etc/ssl/private/rootCA.key 4096
 RUN		openssl req -x509 -new -nodes -key /etc/ssl/private/rootCA.key \
 		-sha256 -days 365 -out /etc/ssl/certs/rootCA.crt \
 		-subj "/C=RU/ST=Moscow/L=Moscow/O=42/OU=21/CN=localhost"
-# ssl cert/key generation
+# ssl server cert/key generation
 RUN		openssl req -new -sha256 -nodes -out /etc/ssl/certs/localhost.csr \
 		-newkey rsa:4096 -keyout /etc/ssl/private/localhost.key \
 		-config /etc/ssl/certs/localhost.csr.cnf
