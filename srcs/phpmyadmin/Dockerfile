@@ -1,7 +1,7 @@
 FROM	alpine:3.14
 WORKDIR	/srcs
 RUN		apk update && apk upgrade
-RUN		apk add --no-cache nginx php7-fpm phpmyadmin supervisor
+RUN		apk add --no-cache nginx php7-fpm php7-iconv php7-xml phpmyadmin supervisor
 RUN		mkdir -p /run/nginx && chown -R nginx:nginx /run/nginx
 RUN		mkdir -p /var/tmp/phpmyadmin && \
 		chown -R nginx:nginx /var/tmp/phpmyadmin
