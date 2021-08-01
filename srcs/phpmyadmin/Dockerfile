@@ -1,4 +1,4 @@
-FROM	alpine:3.12
+FROM	alpine:3.14
 WORKDIR	/srcs
 RUN		apk update && apk upgrade
 RUN		apk add --no-cache nginx php7-fpm phpmyadmin supervisor
@@ -8,7 +8,7 @@ RUN		mkdir -p /var/tmp/phpmyadmin && \
 RUN		sed -i 's/nobody/nginx/g' /etc/php7/php-fpm.d/www.conf
 
 # copy configs
-COPY	./localhost.conf /etc/nginx/conf.d/default.conf
+COPY	./localhost.conf /etc/nginx/http.d/default.conf
 COPY	./config.inc.php /etc/phpmyadmin/config.inc.php
 COPY	./supervisord.conf /etc/supervisord.conf
 

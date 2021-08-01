@@ -2,13 +2,10 @@
 
 # starting kubernetes cluster
 minikube start \
-	--driver=virtualbox --cpus=2 --memory='3072' --disk-size='17000mb' \
-	--host-only-cidr='192.168.117.1/24' \
+	--driver=docker --cpus=2 --memory='3072' --disk-size='17000mb' \
 	--extra-config=kubelet.authentication-token-webhook=true
 # --extra-config=kubelet.authentication-token-webhook=true is used to enable
 # API bearer tokens to authenticate to the kubelet's HTTPS endpoint
-# --host-only-cidr works only with virtualbox driver + safari make things worse
-# delete to use default host cidr (192.168.99.1/24) if anything goes wrong
 
 # enabling addons
 minikube addons enable default-storageclass

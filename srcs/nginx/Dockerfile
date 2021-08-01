@@ -1,4 +1,4 @@
-FROM	alpine:3.12
+FROM	alpine:3.14
 WORKDIR	/srcs
 RUN		apk update && apk upgrade
 RUN		apk add --no-cache nginx openssl openssh supervisor
@@ -6,7 +6,7 @@ RUN		mkdir -p /run/nginx && chown -R nginx:nginx /run/nginx
 
 # copy indexpage and configs
 COPY	./index.html		/var/www/localhost/htdocs
-COPY	./localhost.conf	/etc/nginx/conf.d/default.conf
+COPY	./localhost.conf	/etc/nginx/http.d/default.conf
 COPY	./localhost.csr.cnf	/etc/ssl/certs/localhost.csr.cnf
 COPY	./v3.ext			/etc/ssl/certs/v3.ext
 COPY	./supervisord.conf	/etc/supervisord.conf

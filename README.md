@@ -20,12 +20,12 @@ All containers are building from scratch using Alpine Linux
 2. Run `./setup.sh`
 
 ### Checking cluster
-Open `192.168.117.242` in any browser and follow the instructions on the opened page to check other services
+Open `192.168.49.242` in any browser and follow the instructions on the opened page to check other services
 
 ## Migrating to another minikube vm driver
 1. Check `minikube ip` after running `minikube start --driver=[desired driver]`\
 The ip address you get should be in the same `/24` CIDR subnet as your services\
-So basically if `minikube ip` returned `a.b.c.d` you replace `192.168.117.242` with `a.b.c.242` everywhere
+So basically if `minikube ip` returned `a.b.c.d` you replace `192.168.49.242` with `a.b.c.242` everywhere
 2. In `setup.sh` change driver and remove `--host-only-cidr` parameter
 >`--host-only-cidr` is only for virtualbox driver
 
