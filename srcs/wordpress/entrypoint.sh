@@ -7,7 +7,7 @@ then
 	if ! $(wp core is-installed --path=/var/www/localhost/htdocs --allow-root)
 	then
 		# wp installation
-		wp core install --url=http://192.168.117.242:5050/ \
+		wp core install --url="http://192.168.117.242:5050/" \
 		--title=ft_services --admin_user=admin --admin_password=admin42 \
 		--admin_email=thefullarcticfox@users.noreply.github.com --skip-email \
 		--path=/var/www/localhost/htdocs --allow-root
